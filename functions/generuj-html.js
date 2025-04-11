@@ -2,10 +2,12 @@ const fs = require("fs");
 const path = require("path");
 const mustache = require("mustache");
 const archiver = require("archiver");
+const querystring = require("querystring");
 
 exports.handler = async (event, context) => {
   // Parsowanie danych z formularza
-  const formData = JSON.parse(event.body);
+
+  const formData = querystring.parse(event.body);
 
   // Ścieżka do szablonu
   const templatePath = path.resolve(__dirname, "../templates/szablon.html");
