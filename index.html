@@ -2,32 +2,46 @@
 <html lang="pl">
   <head>
     <meta charset="UTF-8" />
-    <title>Formularz zgłoszeniowy</title>
+    <title>Dodaj Szachistę</title>
   </head>
   <body>
-    <h1>Formularz zgłoszeniowy</h1>
+    <h1>Dodaj Szachistę</h1>
     <form
-      name="formularz"
+      name="szachista"
       method="POST"
-      action="/.netlify/functions/generuj-html"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
     >
-      <label for="imie">Imię:</label>
-      <input type="text" id="imie" name="imie" required /><br />
-
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required /><br />
-
-      <label for="wiadomosc">Wiadomość:</label><br />
-      <textarea
-        id="wiadomosc"
-        name="wiadomosc"
-        rows="4"
-        cols="50"
-        required
-      ></textarea
-      ><br />
-
-      <button type="submit">Wyślij</button>
+      <input type="hidden" name="form-name" value="szachista" />
+      <p hidden>
+        <label>Nie wypełniaj tego: <input name="bot-field" /></label>
+      </p>
+      <p>
+        <label
+          >Nazwa Szachisty: <input type="text" name="nazwa" required
+        /></label>
+      </p>
+      <p>
+        <label
+          >Opis: <br /><textarea
+            name="opis"
+            maxlength="500"
+            required
+          ></textarea>
+        </label>
+      </p>
+      <p>
+        <label
+          >Link do informacji: <input type="url" name="link_info" required
+        /></label>
+      </p>
+      <p>
+        <label
+          >Partie (max 3 linki, po jednej na linię):<br />
+          <textarea name="partie"></textarea>
+        </label>
+      </p>
+      <p><button type="submit">Wyślij</button></p>
     </form>
   </body>
 </html>
